@@ -23,7 +23,7 @@ bot.py (Slack Bolt) → rag.py (LlamaIndex + ChromaDB + Gemini API)
                     → chat_history.py (per-user conversation memory)
                     → feedback.py (survey results + admin DM)
                     → error_logging.py (logs errors and rotates logs)
-                    → slack_surve.py (prompts slack survey)
+                    → slack_survey.py (prompts slack survey)
 
 Google Drive API    ← gdrive_sync.py (PDF link discovery, Team Drive)
 Gemini API          ← rag.py (primary: gemini-3.1-lite-preview, secondary: gemini-2.5-flash)
