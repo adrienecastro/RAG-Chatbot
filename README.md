@@ -61,7 +61,6 @@ sudo chown <chatbot name>:<chatbot name> <project directory>
 
 # Create document directories (adjust names to match your structure)
 sudo mkdir -p "<project directory>/docs/IT Knowledge Base"
-sudo mkdir -p "<project directory>/docs/IT Knowledge Base"
 sudo mkdir  "<project directory>/docs/User Manuals"
 sudo mkdir  <project directory>/docs/Miscellaneous
 sudo chown -R <chatbot name>:<chatbot name> <project directory>/docs/
