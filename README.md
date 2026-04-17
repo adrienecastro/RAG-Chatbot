@@ -33,7 +33,7 @@ Gemini API          ← rag.py (primary: gemini-3.1-lite-preview, secondary: gem
 
 ## Prerequisites
 
-- Arch Linux server (if using different distro/shell substute command equivalents)
+- Arch Linux server (if using different distro/shell substitute command equivalents)
 - Python 3.11 (not 3.14 — C-extension compatibility)
 - Internet access from the server (outbound only)
 - A Google cloud/drive account (Gemini API + Google Drive)
