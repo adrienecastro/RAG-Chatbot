@@ -201,11 +201,11 @@ ADMIN_SLACK_USER_IDS=slack-admin-id-1, slack-admin-id-2
 
 # Google Drive
 GOOGLE_SERVICE_ACCOUNT_PATH=<project directory>/.gdrive-token.json
-GOOGLE_DRIVE_FOLDER_IDS=IT Knowledge Base:FOLDER_ID_HERE|User Manuals:FOLDER_ID_HERE|Miscellaneous:FOLDER_ID_HERE
+GOOGLE_DRIVE_FOLDER_IDS="IT Knowledge Base:FOLDER_ID_HERE,User Manuals:FOLDER_ID_HERE,Miscellaneous:FOLDER_ID_HERE"
 
 # Local paths
 CHROMA_PATH=<project directory>/chroma_db
-DOCS_PATHS=”<project directory>/docs/IT Knowledge Base,<project directory>/docs/User Manuals,<project directory>/docs/Miscellaneous”
+DOCS=”<project directory>/docs/IT Knowledge Base,<project directory>/docs/User Manuals,<project directory>/docs/Miscellaneous”
 LLAMA_INDEX_CACHE_DIR=<project directory>/.llama-cache
 HF_HOME=<project directory>/.hf-cache
 EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
