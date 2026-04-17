@@ -99,7 +99,7 @@ def schedule_survey(user_id: str, channel_id: str, question: str, answer: str, s
                         "text": {
                             "type": "mrkdwn",
                             "text": (
-                                "Was *KeyWatchBot*'s answer helpful? "
+                                "Was *<chatbot name>*'s answer helpful? "
                                 "Your feedback helps improve future "
                                 "responses. :speech_balloon:"
                             )
@@ -133,7 +133,7 @@ def schedule_survey(user_id: str, channel_id: str, question: str, answer: str, s
                         ]
                     }
                 ],
-                text="Was KeyWatchBot's answer helpful?"
+                text="Was <chatbot name>'s answer helpful?"
             )
             logger.info(f"Survey sent to user {user_id} in channel {channel_id}")
 
@@ -167,7 +167,7 @@ def notify_neg_feedback(client, ctx: dict, user_feedback: str):
         return
 
     # Format conversation history
-    history_text = "_No prior history_"
+    history_text = "- No prior chat history -"
     if ctx.get("history"):
         lines = []
         for entry in ctx["history"]:
