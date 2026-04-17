@@ -210,7 +210,7 @@ def gemini_query(prompt: str, system: str, history: list = None, max_retries: in
             contents.append(types.Content(role=role, parts=[types.Part(text=entry["content"])]))
     contents.append(types.Content(role="user", parts=[types.Part(text=prompt)]))
 
-    # Try primary model first
+    # Try primary model
     try:
         logger.info(f"Calling primary model: {primary_model}")
         return gemini_call(primary_model, prompt, system, contents, max_retries)
@@ -256,7 +256,7 @@ def query(question: str, product: str = None, history: list = None, feedback_hin
         nodes = retriever.retrieve(question)
         nodes = deduplicate_products(nodes)
 
-        # Drop nodes that are below a minimum relevance
+        # Drop nodes that are below a minimum relevance score
         nodes = [n for n in nodes if (n.score or 0) >= MIN_SOURCE_SCORE]
 
         # TXT file keyword filter
