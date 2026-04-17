@@ -1,6 +1,6 @@
 # Internal RAG Support Chatbot
 
-A Slack-based internal support chatbot that helps answer IT support questions
+A simple Slack-based internal support chatbot that helps answer IT support questions
 by searching a local knowledge base of PDF and TXT documents using
 Retrieval-Augmented Generation (RAG). Powered by Google Gemini, LlamaIndex,
 ChromaDB, and sentence-transformers. Runs entirely on-premises with no
