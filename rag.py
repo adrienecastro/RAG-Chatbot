@@ -10,8 +10,8 @@ from google.genai.errors import ServerError, ClientError
 
 # Must be set before any llama_index imports
 load_dotenv()
-os.environ["LLAMA_INDEX"] = os.getenv("LLAMA_INDEX")
-os.environ["HF_HOME"] = os.getenv("HF_HOME")
+os.environ["LLAMA_INDEX_CACHE_DIR"] = os.getenv("LLAMA_INDEX")
+os.environ["HF_HOME"] = os.getenv("HF_CACHE")
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 os.environ["HF_DATASETS_OFFLINE"] = "1"
 
