@@ -43,7 +43,7 @@ Gemini API          ← rag.py (primary: gemini-3.1-lite-preview, secondary: gem
 
 ---
 
-## Phase 1 — Server setup
+## Step 1 — Server setup
 
 ```bash
 # Update the system
@@ -68,7 +68,7 @@ sudo chown -R <chatbot name>:<chatbot name> <project directory>/docs/
 
 ---
 
-## Phase 2 — Google Cloud setup
+## Step 2 — Google Cloud setup
 
 ### Enable the Drive API
 
@@ -102,7 +102,7 @@ sudo chmod 600 <project directory>/.gdrive-token.json
 
 ---
 
-## Phase 3 — Slack app setup
+## Step 3 — Slack app setup
 
 1. Go to [api.slack.com/apps](https://api.slack.com/apps) → **Create New App → From Scratch**
 2. Name: <chatbot name>, select your workspace
@@ -149,7 +149,7 @@ In Slack, click each admin user's profile → **More → Copy member ID**.
 
 ---
 
-## Phase 4 — Project files
+## Step 4 — Project files
 
 ### Clone or copy files to the server
 
@@ -219,7 +219,7 @@ Find your Drive folder IDs from the URL when the folder is open in your browser:
 
 ---
 
-## Phase 5 — Create pip helper and install dependencies
+## Step 5 — Create uv pip helper and install dependencies
 
 ```bash
 # Create pip cache directory
@@ -254,7 +254,7 @@ sudo -u <chatbot name> <project directory>/.venv/bin/pip freeze > <project direc
 
 ---
 
-## Phase 6 — Add documents and run initial ingest
+## Step 6 — Add documents and run initial ingest
 
 ```bash
 # Copy PDFs into the appropriate category/product folders
@@ -280,7 +280,7 @@ Go to Slack, @mention the bot with a test question. Press `Ctrl+C` when done.
 
 ---
 
-## Phase 7 — Install as systemd service
+## Step 7 — Install as systemd service
 
 Create `/etc/systemd/system/<chatbot service name>.service`:
 
