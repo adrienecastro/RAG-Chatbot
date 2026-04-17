@@ -197,13 +197,13 @@ GEMINI_SECONDARY_MODEL=gemini-2.5-flash
 # Slack
 SLACK_BOT_TOKEN=xoxb-your-bot-token
 SLACK_APP_TOKEN=xapp-your-app-token
-ADMIN_SLACK_USER_IDS=U012AB3CD,U098ZY7WX
+ADMIN_SLACK_USER_IDS=slack-admin-id-1, slack-admin-id-2 
 
 # Google Drive
 GOOGLE_SERVICE_ACCOUNT_PATH=<project directory>/.gdrive-token.json
 GOOGLE_DRIVE_FOLDER_IDS=IT Knowledge Base:FOLDER_ID_HERE|User Manuals:FOLDER_ID_HERE|Miscellaneous:FOLDER_ID_HERE
 
-# Local paths (use absolute paths)
+# Local paths
 CHROMA_PATH=<project directory>/chroma_db
 DOCS_PATHS=”<project directory>/docs/IT Knowledge Base,<project directory>/docs/User Manuals,<project directory>/docs/Miscellaneous”
 LLAMA_INDEX_CACHE_DIR=<project directory>/.llama-cache
