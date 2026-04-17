@@ -79,7 +79,7 @@ sudo chown -R <chatbot name>:<chatbot name> <project directory>/docs/
 ### Create a service account
 
 1. Go to **APIs & Services → Credentials → Create Credentials → Service Account**
-2. Name: `<service account name>`
+2. Name: `<google service account name>`
 3. Once created: click the account → **Keys** tab → **Add Key → JSON**
 4. Download the JSON file and copy it to the server:
 
@@ -200,10 +200,10 @@ SLACK_APP_TOKEN=xapp-your-app-token
 ADMIN_SLACK_USER_IDS=U012AB3CD,U098ZY7WX
 
 # Google Drive
-GOOGLE_SERVICE_ACCOUNT_PATH=/opt/KeyWatchBot/keywatchbot.json
-GOOGLE_DRIVE_FOLDER_IDS=IT Knowledge Base:1FOLDER_ID_HERE|User Manuals:1FOLDER_ID_HERE|Miscellaneous:1FOLDER_ID_HERE
+GOOGLE_SERVICE_ACCOUNT_PATH=<project directory>/gdrive_token.json
+GOOGLE_DRIVE_FOLDER_IDS=IT Knowledge Base:FOLDER_ID_HERE|User Manuals:FOLDER_ID_HERE|Miscellaneous:FOLDER_ID_HERE
 
-# Local paths (use absolute paths — relative paths cause issues in systemd)
+# Local paths (use absolute paths)
 CHROMA_PATH=<project directory>/chroma_db
 DOCS_PATHS=”<project directory>/docs/IT Knowledge Base,<project directory>/docs/User Manuals,<project directory>/docs/Miscellaneous”
 LLAMA_INDEX_CACHE_DIR=<project directory>/.llama-cache
