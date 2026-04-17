@@ -1,4 +1,4 @@
-# Internal RAG Support Chatbot
+# Internal RAG Chatbot
 
 A simple Slack-based internal support chatbot that helps answer IT support questions
 by searching a local knowledge base of PDF and TXT documents using
