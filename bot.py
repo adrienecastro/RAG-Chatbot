@@ -25,17 +25,11 @@ error_logging()
 logger = logging.getLogger(__name__)
 app = App(token=os.getenv("SLACK_BOT_TOKEN"))
 feedback_store = feedbackStore()
-
-
-# Sets ttl for user chat history
 chat_history = chatHistory(max_turns=10, ttl_seconds=1800)
 
-
-# Slack admin verification
-raw_admin_ids = os.getenv("ADMIN_SLACK_USER_IDS", "")
-ADMIN_IDS = {uid.strip() for uid in raw_admin_ids.split(",") if uid.strip()}
+ADMIN_IDS = {uid.strip() for uid in os.getenv("SLACK_ADMIN_IDS").split(",") if uid.strip()}
 if not ADMIN_IDS:
-    logger.warning("ADMIN_SLACK_USER_IDS is not set — /reload will be unavailable.")
+    logger.warning("SLACK_ADMIN_IDS is not set — /reload will be unavailable.")
 
 
 # Rate Limiter
@@ -97,7 +91,7 @@ def prevent_traversal(filepath: str) -> bool:
     if not filepath:
         return False
 
-    allowed_path = ["<project directory"]
+    allowed_path = ["<project directory>"]
 
     resolved = os.path.realpath(filepath)
 
@@ -124,15 +118,15 @@ def detect_keywords(question: str) -> list:
 
 #Product Detection
 def get_products() -> list:
-    raw_paths = os.getenv("DOCS_PATHS", "")
-    scoped_keywords = ["User Manuals", "Miscellaneous"]
+    docs = os.getenv("DOCS")
+    product_folders = ["User Manuals", "Miscellaneous"]
     products = []
 
-    for path in raw_paths.split(","):
-        path = path.strip()
-        if any(keyword in path for keyword in scoped_keywords):
+    for doc in docs.split(","):
+        doc = doc.strip()
+        if any(keyword in doc for keyword in product_folders):
             if os.path.exists(path):
-                subfolders = [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
+                subfolders = [d for d in os.listdir(path) if os.path.isdir(os.path.join(doc, d))]
                 products.extend(subfolders)
 
     return products
