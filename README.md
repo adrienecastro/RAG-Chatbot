@@ -237,8 +237,8 @@ pipUninstall.sh:
 sudo -u <chatbot name> uv pip uninstall --cache-dir <project directory>/.pip-cache --python <project directory>/.venv/bin/python "$@"
 EOF
 
-sudo chmod +x /opt/KeyWatchBot/pipInstall.sh
-sudo chmod +x /opt/KeyWatchBot/pipUninstall.sh
+sudo chmod +x <project directory>/pipInstall.sh
+sudo chmod +x <project directory>/pipUninstall.sh
 
 # Create virtualenv using Python 3.11
 sudo -u <chatbot name> python3.11 -m venv <project directory>/.venv
