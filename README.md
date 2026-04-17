@@ -94,9 +94,9 @@ sudo chmod 600 <project directory>/.gdrive-token.json
 2. In Google Drive, open your Team Drive → right-click the root → **Manage members**
 3. Add the `client_email` as a **Viewer**
 
-### Get your Gemini API key
+### Create your Gemini API key
 
-1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+1. Go to [console.cloud.google.com](https://console.cloud.google.com)
 2. Create an API key under your Google Cloud account
 3. Save it — you will add it to `.env` in Phase 4
 
