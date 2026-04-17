@@ -401,15 +401,17 @@ Include synonyms and common phrasings in the KEYWORDS line.
 ├── pipUninstall.sh         ← pip helper script
 ├── bot.py                  ← Slack bot and event handlers
 ├── rag.py                  ← retrieval and generation pipeline
-├── ingest.py               ← document ingestion pipeline
+├── ingest.py               ← document embedding and indexing
 ├── gdrive_sync.py          ← Google Drive API integration
 ├── pdf_reader.py           ← PDF text extraction and chunking
 ├── extract_images.py       ← PDF image extraction
 ├── chat_history.py         ← per-user conversation memory
-├── feedback.py             ← survey result storage
-├── gdrive_token.json       ← service account credentials
+├── feedback.py             ← stores slack survey results/responses
+├── error_logging.py        ← logs error messages to logs/error.log; warning and below go to console
+├── slack_survey.py         ← prompts slack user to give feedback after 15 min of inactivity
+├── gdrive_token.json       ← google drive service account credentials
 ├── .feedback.json          ← stored user feedback
-├── .hash-cache.json        ← HMAC-signed file hash cache
+├── .hash-cache.json        ← HMAC-signed json file with hashes of all files in docs/
 ├── .pip-cache/             ← pip download cache
 ├── .llama-cache/           ← LlamaIndex model cache
 ├── .hf-cache/              ← HuggingFace model cache
