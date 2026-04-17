@@ -15,7 +15,7 @@ gdrive_token = None
 def get_gdrive_token():
     global gdrive_token
     if gdrive_token is None:
-        creds = service_account.Credentials.from_service_account_file(os.getenv("GOOGLE_SERVICE_ACCOUNT_PATH"), scopes=SCOPE)
+        creds = service_account.Credentials.from_service_account_file(os.getenv("GOOGLE_SERVICE_ACCOUNT"), scopes=SCOPE)
         gdrive_token = build("drive", "v3", credentials=creds)
     return gdrive_token
 
