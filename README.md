@@ -357,7 +357,7 @@ sudo -u <chatbot name> <project directory>/.venv/bin/python ingest.py
 | Command | Who can use | What it does |
 |---|---|---|
 | `/reload` | Admins only | Re-indexes all documents from scratch |
-| `/chat-clear` | All users | Clears the caller's conversation history |
+| `/chat-clear` | All users | Clears the user's conversation history |
 | `/chat-stats` | Admins only | Shows positive/negative feedback counts |
 
 ---
