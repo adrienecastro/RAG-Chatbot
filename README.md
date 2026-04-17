@@ -53,7 +53,7 @@ sudo pacman -Syu
 sudo pacman -S python311 python-pip git tesseract tesseract-data-eng poppler uv pkgconf base-devel libjpeg-turbo libpng
 
 # Create a system account (no login shell, no home directory)
-sudo useradd --system -m -d <project directory> --shell /usr/sbin/nologin supportbot
+sudo useradd --system -m -d <project directory> --shell /usr/sbin/nologin <chatbot name>
 
 # Create project directory
 sudo mkdir <project directory>
