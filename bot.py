@@ -97,11 +97,9 @@ def prevent_traversal(filepath: str) -> bool:
     if not filepath:
         return False
 
-    allowed_path = ["/opt/KeyWatchBot/"]
+    allowed_path = ["<project directory"]
 
     resolved = os.path.realpath(filepath)
-
-    logger.info(f"DEBUG prevent_traversal: checking '{resolved}'")
 
     for image in allowed_path:
         resolved_image = os.path.realpath(image)
@@ -154,13 +152,13 @@ def detect_product(question: str) -> str:
 GREETINGS = [
     r"^hello\b", r"^hi\b", r"^hey\b", r"^howdy\b",
     r"^good morning\b", r"^good afternoon\b", r"^good evening\b",
-    r"^what('s| is) up\b", r"^sup\b"
+    r"^what('s| is) up\b", r"^sup\b", r"^yo\b"
 ]
 THANKS = [
-    r"^thank(s| you)\b", r"^ty\b", r"^cheers\b", r"^appreciated\b"
+    r"^thank(s| you)\b", r"^ty\b", r"^appreciate(d| it)\b"
 ]
-FAREWELLS = [
-    r"^bye\b", r"^goodbye\b", r"^see you\b", r"^later\b", r"^cya\b"
+GOODBYES = [
+    r"^bye\b", r"^goodbye\b", r"^see you\b", r"^later\b", r"^cya\b", r"^peace\b"
 ]
 
 
@@ -174,9 +172,9 @@ def detect_smalltalk(text: str) -> str:
         if re.match(pattern, text_lower):
             return "Happy to help! :slightly_smiling_face: Let me know if you have any other questions."
 
-    for pattern in FAREWELLS:
+    for pattern in GOODBYES:
         if re.match(pattern, text_lower):
-            return "Take care! :wave: Ask me anytime you need help."
+            return "No problem! :wave: Ask me anytime you need help."
     return None
 
 
@@ -258,7 +256,7 @@ def handle_image_request(question: str, channel_id: str, say, client):
 
         if not image_results:
             if pdf_url:
-                say(f"This document doesn't appear to have any images I can share. You can view it directly here: {slack_link(pdf_url, pdf_filename)}")
+                say(f"This document doesn't appear to have any images I can share, but you can view it directly here: {slack_link(pdf_url, pdf_filename)}")
             else:
                 say(f"This document doesn't appear to have any images I can share: *{slack_escape(pdf_filename)}*")
             return
