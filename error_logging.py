@@ -1,9 +1,9 @@
 import logging
 from logging.handlers import RotatingFileHandler
 
-# Logs errors to /opt/KeyWatchBot/error.log and rotates logs up to 20MB
+# Logs errors to <project directory>/logs/error.log and rotates logs up to 20MB
 def error_logging():
-    log_path = "/opt/KeyWatchBot/logs/error.log"
+    log_path = "<project directory>/logs/error.log"
 
     # Root logger - captures everything
     root_logger = logging.getLogger()
