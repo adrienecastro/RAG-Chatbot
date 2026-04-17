@@ -7,7 +7,7 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
-FEEDBACK_PATH = "/opt/KeyWatchBot/.feedback.json"
+FEEDBACK_FILE = "<project directory>/.feedback.json"
 
 STOPWORDS = {
     "a", "an", "the", "is", "are", "was", "were", "be", "been",
@@ -21,7 +21,7 @@ STOPWORDS = {
 
 # Persists user feedback to disk and provides hint generation for future queries based on past negative feedback.
 class feedbackStore:
-    def __init__(self, path: str = FEEDBACK_PATH):
+    def __init__(self, path: str = FEEDBACK_FILE):
         self.path = path
         self.lock = threading.Lock()
         self.data = self._load()
@@ -80,7 +80,7 @@ class feedbackStore:
         logger.info(f"Stored negative feedback [{entry_id[:8]}]:'{user_feedback[:60]}'")
         return entry_id
 
-    # Similarity is determined by keyword overlap — at least 2 meaningful words in common with a past negatively-rated question.
+    # Similarity is determined by keyword overlap — user question needs at least 2 meaningful words in common with a past negatively rated question.
     def get_feedback(self, question: str) -> str:
         with self.lock:
             negative = list(self.data["negative"])
