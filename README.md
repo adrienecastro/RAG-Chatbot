@@ -254,7 +254,13 @@ sudo -u <chatbot name> <project directory>/.venv/bin/pip freeze > <project direc
 
 ---
 
-## Step 6 — Add documents and run initial ingest
+## Step 6 — Update py files
+
+In most of the py files, some variables and comments have `<project directory>` in them. Be sure to swap this out with your project directory.
+
+---
+
+## Step 7 — Add documents and run initial ingest
 
 ```bash
 # Copy PDFs into the appropriate category/product folders
@@ -280,7 +286,7 @@ Go to Slack, @mention the bot with a test question. Press `Ctrl+C` when done.
 
 ---
 
-## Step 7 — Install as systemd service
+## Step 8 — Install as systemd service
 
 Create `/etc/systemd/system/<chatbot service name>.service`:
 
