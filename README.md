@@ -335,19 +335,13 @@ grep "Gemini" <project directory>/logs/error.log
 sudo systemctl status <chatbot service name>
 ```
 
-### Restarting after a code change
-
-```bash
-sudo systemctl restart <chatbot service name>
-```
-
 ### Reloading the vector index completely
 
 ```bash
 rm <project directory>/.hash-cache.json
 rm -rf <project directory>/chroma_db
-sudo systemctl restart <chatbot service name>
 sudo -u <chatbot name> <project directory>/.venv/bin/python ingest.py
+sudo systemctl restart <chatbot service name>
 ```
 
 ---
