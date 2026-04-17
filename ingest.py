@@ -44,14 +44,14 @@ tqdm_auto.tqdm = customTqdm
 
 
 # Variables
-HASH_CACHE_PATH = "/opt/KeyWatchBot/.hash-cache.json"
+HASH_CACHE_FILE = "<project directory>/.hash-cache.json"
 CACHE_SECRET = os.getenv("HASH_CACHE_SECRET")
 EXTENSIONS = {".pdf", ".txt"}
 
 # Max pdf size to process in mb
 MAX_PDF_SIZE = 50    
 
-# Keys to strip before indexing
+# Metadata keys to ignore during indexing
 EXCLUDED_METADATA_KEYS = {
     "chunk_start", "chunk_end", "file_size", "file_type",
     "creation_date", "last_modified_date", "last_accessed_date",
@@ -149,7 +149,7 @@ def clear_metadata(docs: list) -> list:
 # Main Ingest
 def run_ingest() -> str:
     try:
-        hash_cache = load_hash_cache(HASH_CACHE_PATH)
+        hash_cache = load_hash_cache(HASH_CACHE_FILE)
         new_hash_cache = {}
 
         print("Fetching PDF links from Google Drive...")
@@ -282,7 +282,7 @@ def run_ingest() -> str:
         print(f"\nSummary: {len(all_docs)} chunks to index, {skipped} files skipped (unchanged), {failed} files failed.")
 
         if not all_docs:
-            save_hash_cache(HASH_CACHE_PATH, new_hash_cache)
+            save_hash_cache(HASH_CACHE_FILE, new_hash_cache)
             return (f"No new or changed files found. Index is up to date. ({skipped} files unchanged, {failed} failed)")
 
         all_docs = clear_metadata(all_docs)
@@ -300,7 +300,7 @@ def run_ingest() -> str:
         storage_context = StorageContext.from_defaults(vector_store=vector_store)
         VectorStoreIndex.from_documents(all_docs, storage_context=storage_context, show_progress=True)
 
-        save_hash_cache(HASH_CACHE_PATH, new_hash_cache)
+        save_hash_cache(HASH_CACHE_FILE, new_hash_cache)
         print(f"Index now contains {collection.count()} chunks.")
 
         return (f"Re-indexed successfully. Loaded {len(all_docs)} chunks from {len(docs_paths)} folders ({skipped} files unchanged, {failed} files failed, {len(drive_links)} google drive files found).")
