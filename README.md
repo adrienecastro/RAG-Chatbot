@@ -338,8 +338,8 @@ sudo systemctl status <chatbot service name>
 ### Reloading the vector index completely
 
 ```bash
-rm <project directory>/.hash-cache.json
-rm -rf <project directory>/chroma_db
+sudo rm <project directory>/.hash-cache.json
+sudo rm -rf <project directory>/chroma_db
 sudo -u <chatbot name> <project directory>/.venv/bin/python ingest.py
 sudo systemctl restart <chatbot service name>
 ```
