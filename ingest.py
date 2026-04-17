@@ -12,7 +12,7 @@ from pdf_reader import load_pdf
 
 # Must be set before llama_index imports
 load_dotenv()
-os.environ["LLAMA_INDEX_CACHE_DIR"] = os.getenv("LLAMA_INDEX_CACHE_DIR")
+os.environ["LLAMA_INDEX"] = os.getenv("LLAMA_INDEX")
 os.environ["HF_HOME"] = os.getenv("HF_HOME")
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 os.environ["HF_DATASETS_OFFLINE"] = "1"
@@ -156,11 +156,11 @@ def run_ingest() -> str:
         drive_links = get_gdrive_urls()
         print(f"Found {len(drive_links)} PDFs across all Drive folders.")
 
-        raw_paths = os.getenv("DOCS_PATHS")
+        raw_paths = os.getenv("DOCS")
         docs_paths = [p.strip() for p in raw_paths.split(",") if p.strip()]
 
         if not docs_paths:
-            return "Ingestion failed: `DOCS_PATHS is not set in .env`"
+            return "Ingestion failed: `DOCS is not set in .env`"
 
         all_docs = []
         skipped = 0
