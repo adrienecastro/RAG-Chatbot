@@ -200,7 +200,7 @@ SLACK_APP_TOKEN=xapp-your-app-token
 ADMIN_SLACK_USER_IDS=U012AB3CD,U098ZY7WX
 
 # Google Drive
-GOOGLE_SERVICE_ACCOUNT_PATH=<project directory>/gdrive_token.json
+GOOGLE_SERVICE_ACCOUNT_PATH=<project directory>/.gdrive-token.json
 GOOGLE_DRIVE_FOLDER_IDS=IT Knowledge Base:FOLDER_ID_HERE|User Manuals:FOLDER_ID_HERE|Miscellaneous:FOLDER_ID_HERE
 
 # Local paths (use absolute paths)
@@ -415,7 +415,7 @@ Include synonyms and common phrasings in the KEYWORDS line.
 ├── feedback.py             ← stores slack survey results/responses
 ├── error_logging.py        ← logs error messages to logs/error.log; warning and below go to console
 ├── slack_survey.py         ← prompts slack user to give feedback after 15 min of inactivity
-├── gdrive_token.json       ← google drive service account credentials
+├── .gdrive-token.json       ← google drive service account credentials
 ├── .feedback.json          ← stored user feedback
 ├── .hash-cache.json        ← HMAC-signed json file with hashes of all files in docs/
 ├── .pip-cache/             ← pip download cache
