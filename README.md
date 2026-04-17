@@ -341,7 +341,7 @@ sudo systemctl status <chatbot service name>
 sudo systemctl restart <chatbot service name>
 ```
 
-### Resetting the vector index completely
+### Reloading the vector index completely
 
 ```bash
 rm <project directory>/.hash-cache.json
